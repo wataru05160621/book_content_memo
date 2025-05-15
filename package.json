@@ -1,0 +1,19 @@
+{
+  "name": "book_content_viewer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "start:frontend": "npm --workspace frontend start",
+    "start:backend": "npm --workspace backend run start:dev",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
