@@ -38,5 +38,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "dependencies": {
+    "@react-navigation/stack": "^7.3.2"
   }
 }

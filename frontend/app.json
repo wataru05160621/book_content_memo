@@ -1,13 +1,18 @@
 {
   "expo": {
-    "name": "frontend",
-    "slug": "frontend",
+    "name": "book_content_memo",
+    "slug": "book_content_memo",
     "version": "1.0.0",
     "orientation": "portrait",
+    "entryPoint": "./index.js",
     "icon": "./assets/images/icon.png",
     "scheme": "frontend",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
