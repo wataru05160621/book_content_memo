@@ -1,17 +1,17 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { SupabaseModule } from './supabase/supabase.module';
 import { HealthController } from './health/health.controller';
-import { AuthModule } from './auth/auth.module';
-import { validate } from './config/env.validation';
+import { HealthService } from './health/health.service';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      validate,
     }),
-    AuthModule,
+    SupabaseModule,
   ],
   controllers: [HealthController],
+  providers: [HealthService],
 })
 export class AppModule {}
