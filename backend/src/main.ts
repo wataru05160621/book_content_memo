@@ -33,5 +33,12 @@ async function bootstrap() {
 
   const port = process.env.PORT || 3000;
   await app.listen(port);
+
+  // 起動確認のログを追加
+  console.log(`Application is running on: ${await app.getUrl()}`);
 }
-bootstrap();
+
+void bootstrap().catch((error) => {
+  console.error('Application failed to start:', error);
+  process.exit(1);
+});
