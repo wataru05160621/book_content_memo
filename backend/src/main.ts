@@ -6,11 +6,16 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // CORSの設定を追加
-  app.enableCors({
-    origin: true, // 開発環境では全てのオリジンを許可
-    credentials: true,
-  });
+  // Vercel環境での設定
+  if (process.env.VERCEL) {
+    app.enableCors();
+  } else {
+    // CORSの設定を追加
+    app.enableCors({
+      origin: true, // 開発環境では全てのオリジンを許可
+      credentials: true,
+    });
+  }
 
   // バリデーションパイプの設定
   app.useGlobalPipes(new ValidationPipe());
@@ -26,6 +31,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(3000);
+  const port = process.env.PORT || 3000;
+  await app.listen(port);
 }
 bootstrap();
